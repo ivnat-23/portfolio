@@ -8,29 +8,29 @@ document.addEventListener('DOMContentLoaded', function () {
    */
   const projectsData = [
     {
-      title: "E-Commerce Website",
-      category: "Web",
+      title: "Women Safety App",
+      category: "Android App",
       image: "images/project1.jpg",
-      description: "A full-featured e-commerce platform built with HTML, CSS, and JavaScript for the frontend, and PHP for the backend. Includes product listings, a shopping cart, and a user authentication system.",
-      tags: ["HTML5", "CSS3", "JavaScript", "PHP"],
+      description: "Emergency response app with real-time location tracking and alerts.",
+      tags: ["Android Studio", "Java", "XML"],
       liveUrl: "#",
       githubUrl: "#",
     },
     {
-      title: "Task Management App",
+      title: "Measuremate - Measurement App",
       category: "App",
       image: "images/project2.jpg",
-      description: "A native Android application developed with Java for managing daily tasks. Features include creating, editing, and deleting tasks, setting due dates, and priority levels.",
+      description: "A native Android application developed with Java for measuring the dimensions of the object.",
       tags: ["Java", "Android Studio", "XML"],
       liveUrl: "#", // Link to Google Play or a demo video
       githubUrl: "#",
     },
     {
-      title: "Real-time Chat App",
+      title: "Numeye - Traffic App",
       category: "Other",
       image: "images/project3.jpg",
-      description: "A web-based chat application using Firebase for real-time database and authentication. Allows users to sign in and chat in public rooms instantly.",
-      tags: ["Firebase", "JavaScript", "Bootstrap"],
+      description: "A Amdroid based app for traffic police app to scan number plate and issue challan.",
+      tags: ["Firebase", "OpenCV", "Android Studio"],
       liveUrl: "#",
       githubUrl: "#",
     },
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const projectCard = `
         <div class="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="${index * 100}">
           <div class="project-card w-100" data-bs-toggle="modal" data-bs-target="#projectModal" data-project-index="${index}">
-            <img src="${project.image}" class="card-img-top" alt="${project.title}">
+            <img src="${project.image}" class="card-img-top" alt="${project.title}" style="object-fit:fill">
             <div class="card-body d-flex flex-column">
               <h5 class="card-title mt-auto">${project.title}</h5>
               <div class="d-flex flex-wrap gap-2 mt-2">

@@ -1,0 +1,378 @@
+/*
+Modern Portfolio Design
+-----------------------
+Fonts: Poppins (Headings), Inter (Body)
+Colors: Defined in :root and [data-bs-theme="dark"]
+Features: Glassmorphism Navbar, Dark Mode, Subtle Animations
+*/
+
+:root {
+  --primary-color: #0d6efd; /* Bootstrap primary blue */
+  --secondary-color: #6c757d;
+  --bg-color: #f8f9fa;
+  --surface-color: #ffffff;
+  --text-color: #212529;
+  --heading-color: #111827;
+  --border-color: #dee2e6;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+  --radius: 0.75rem;
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Inter', sans-serif;
+  --transition: all 0.3s ease-in-out;
+}
+
+[data-bs-theme="dark"] {
+  --primary-color: #4dabf7; /* Lighter blue for dark mode */
+  --secondary-color: #adb5bd;
+  --bg-color: #0c0c0c;
+  --surface-color: #181818;
+  --text-color: #e9ecef;
+  --heading-color: #ffffff;
+  --border-color: #343a40;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* --- General Styles --- */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-secondary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  color: var(--heading-color);
+  font-weight: 700;
+}
+
+section {
+  scroll-margin-top: 70px; /* Offset for fixed navbar */
+  overflow: hidden;
+}
+
+.bg-body-tertiary {
+  background-color: var(--surface-color) !important;
+}
+
+/* --- Navbar --- */
+.navbar {
+  padding: 0.75rem 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  border-bottom: 1px solid rgba(238, 238, 238, 0.5);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+[data-bs-theme="dark"] .navbar {
+  background-color: rgba(24, 24, 24, 0.7);
+  border-bottom: 1px solid rgba(52, 58, 64, 0.5);
+}
+
+.navbar-brand {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: var(--heading-color);
+}
+
+.nav-link {
+  font-family: var(--font-secondary);
+  font-weight: 500;
+  color: var(--text-color);
+  padding: 0.5rem 1rem !important;
+  margin: 0 0.25rem;
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--primary-color) !important;
+  background-color: rgba(13, 110, 253, 0.1);
+}
+
+[data-bs-theme="dark"] .nav-link:hover, [data-bs-theme="dark"] .nav-link.active {
+  color: var(--primary-color) !important;
+  background-color: rgba(77, 171, 247, 0.1);
+}
+
+#theme-toggle {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    background-color: var(--surface-color);
+    color: var(--text-color);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  position: relative;
+  background-color: #111827; /* Fallback */
+  color: #fff;
+  padding-top: 70px;
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.profile-img {
+  width: 230px;
+  height: 340px;
+  object-fit:contain;
+  border: 5px solid var(--primary-color);
+  box-shadow: 0 0 40px rgba(13, 110, 253, 0.5);
+  border-radius: 20px;
+}
+
+[data-bs-theme="dark"] .profile-img {
+  box-shadow: 0 0 40px rgba(77, 171, 247, 0.5);
+}
+
+#typed-text {
+  color: var(--primary-color);
+}
+
+.hero-section .btn {
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.scroll-down-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    z-index: 2;
+}
+.scroll-down-indicator::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 2px;
+    animation: scroll-indicator 2s infinite;
+}
+
+@keyframes scroll-indicator {
+    0% { opacity: 1; top: 8px; }
+    50% { opacity: 0; top: 20px; }
+    100% { opacity: 0; top: 20px; }
+}
+
+/* --- Section Title --- */
+.section-title h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--primary-color);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.section-title p {
+  color: var(--secondary-color);
+}
+
+/* --- About Section --- */
+#about .social-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+#about .social-icon:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+  transform: translateY(-3px);
+}
+
+/* --- Skills Section --- */
+.skill-card {
+  background-color: var(--surface-color);
+  padding: 2rem 1rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+  height: 100%;
+}
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+[data-bs-theme="dark"] .skill-card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+.skill-card i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+.skill-card span {
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+/* --- Projects Section --- */
+.project-card {
+  background-color: var(--surface-color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+  cursor: pointer;
+  height: 100%;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+}
+
+.project-card .card-img-top {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.project-card .card-body {
+  padding: 1.5rem;
+}
+
+.project-card .card-title {
+  font-weight: 600;
+}
+
+.project-card .tech-tag {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25em 0.6em;
+  border-radius: 20px;
+  background-color: var(--bg-color);
+  color: var(--secondary-color);
+  border: 1px solid var(--border-color);
+}
+
+/* --- Modal --- */
+.modal-content {
+    background-color: var(--surface-color);
+    border: none;
+    border-radius: var(--radius);
+}
+.modal-header {
+    border-bottom: 1px solid var(--border-color);
+}
+.modal-footer {
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- Contact Section --- */
+#contact .form-control {
+  border-radius: var(--radius);
+  padding: 1rem;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+}
+
+#contact .form-control:focus {
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  border-color: var(--primary-color);
+}
+
+[data-bs-theme="dark"] #contact .form-control {
+    background-color: var(--bg-color);
+}
+
+#contact button[type="submit"] {
+  padding: 12px 30px;
+  font-weight: 600;
+}
+
+/* --- Footer --- */
+.footer {
+  background-color: var(--surface-color);
+  border-top: 1px solid var(--border-color);
+}
+.social-icon-footer {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  background-color: var(--bg-color);
+  border-radius: 50%;
+  color: var(--text-color);
+  transition: var(--transition);
+}
+.social-icon-footer:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+/* --- Back to Top Button --- */
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 15px;
+  bottom: 15px;
+  z-index: 999;
+  background: var(--primary-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all 0.4s;
+}
+
+.back-to-top i {
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* --- AOS Animation Anchor Placement --- */
+[data-aos-easing="ease-in-out-cubic"] {
+  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+}

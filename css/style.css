@@ -127,8 +127,8 @@ section {
 }
 
 .profile-img {
-  width: 230px;
-  height: 340px;
+  width: 231px;
+  height: 320px;
   object-fit:contain;
   border: 5px solid var(--primary-color);
   box-shadow: 0 0 40px rgba(13, 110, 253, 0.5);
